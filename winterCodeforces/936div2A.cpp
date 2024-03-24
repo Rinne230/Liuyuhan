@@ -10,7 +10,7 @@
 #define int ll
 #define rep(i, j, k) for(int i = (j); i <= (k); i++)
 #define per(i, j ,k) for(int i = (j); i >= (k); i--)
-#define lyh ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
+#define ios ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
@@ -20,27 +20,24 @@ const ll inf32 = 1e9;
 const ll inf64 = 1e18;
 
 void solve(){
-    int n, k, p;
-    cin >> n >> k >> p;
-    vector dp(k + 1, vi(k + 1, 0));
-    dp[0][0] = 1;
-    for (int i = 1; i <= n; ++i){
-        vector new_dp(k + 1, vi(k + 1, 0));
-        for (int b = 0; b <= k; ++b){
-            for (int a = 0; a <= k; ++a){
-                int c = max(0ll, b - a);
-                new_dp[b][c] = (new_dp[b][c] + dp[a][b]) % p;;
-            }
-            for (int j = 1; j <= k; ++j)
-                new_dp[b][j] = (new_dp[b][j] + new_dp[b][j - 1]);
+    int n;
+    cin >> n;
+    vi a(n + 1);
+    rep(i, 1, n) cin >> a[i];
+    sort(all(a));
+    int cnt = 0;
+    for (int i = (n + 1) / 2; i <= n; ++i){
+        if (a[i] != a[(n + 1) / 2]){
+            break;
+        }else{
+            cnt++;
         }
-        dp = new_dp;
-    }    
-    
+    }
+    cout << cnt << endl;
 }
 
 signed main(){
-    lyh;
+    ios;
     int t = 1;
     cin >> t;
     while(t--){
