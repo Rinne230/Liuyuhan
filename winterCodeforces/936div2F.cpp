@@ -66,7 +66,7 @@ void solve(){
             for (int z = 2 * y; z <= n; z += y){
                 if (idx[z] > idx[y]) continue;
                 dp[z] += dp[y];
-            }
+            } 
         }
         for (int y = x; y <= n; y += x){
             tr.add(idx[y], dp[y]);

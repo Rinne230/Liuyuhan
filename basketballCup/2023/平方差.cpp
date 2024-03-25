@@ -10,7 +10,7 @@
 #define int ll
 #define rep(i, j, k) for(int i = (j); i <= (k); i++)
 #define per(i, j ,k) for(int i = (j); i >= (k); i--)
-#define lyh ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
+#define ios ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
@@ -19,24 +19,24 @@ const ll mod = 998244353;
 const ll inf32 = 1e9;
 const ll inf64 = 1e18;
 
-int qmi(int a, int b){
-    int res = 1;
-    while (b){
-        if (b & 1) res = res * a % mod;
-        a = a * a % mod;
-        b >>= 1;
-    }
-    return res;
+int f(int x){
+    return (x + 1) / 2;
+}
+
+int g(int x){
+    return x / 4;
 }
 
 void solve(){
-        
+    int l, r;
+    cin >> l >> r;
+    cout << f(r) - f(l - 1) + g(r) - g(l - 1) << endl;
 }
 
 signed main(){
-    lyh;
+    ios;
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while(t--){
         solve();
     }
